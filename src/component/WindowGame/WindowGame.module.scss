@@ -1,0 +1,14 @@
+.gameWindow {
+  background-color: black;
+  display: flex;
+  align-items: center;
+  position: absolute;
+  width: 100%;
+}
+.buttonBody {
+  display: flex;
+  height: 100%;
+  position: absolute;
+  width: 100%;
+  top: 0;
+}

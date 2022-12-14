@@ -1,0 +1,27 @@
+.playerBody {
+  //height: 20%;
+  //position: absolute;
+  //display: flex;
+  //bottom: 10%;
+  //left: 50%;
+  //transform: translate(-50%);
+}
+
+.player {
+  position: absolute;
+  height: 45%;
+  bottom: 10%;
+  transform-style: preserve-3d;
+
+  .img {
+    opacity: 0.2;
+    &.active {
+      opacity: 1;
+    }
+  }
+
+  img {
+    height: 100%;
+    object-fit: contain;
+  }
+}

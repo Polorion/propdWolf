@@ -1,0 +1,129 @@
+//.chickenBody {
+//  width: 100%;
+//  height: 30px;
+//  position: absolute;
+//  right: 30px;
+//  display: flex;
+//  justify-content: flex-start;
+//  &.chickenBodyRight {
+//    justify-content: flex-end;
+//  }
+//  .chickenImg {
+//    position: relative;
+//    width: 100%;
+//    height: 30px;
+//    background-color: #fff;
+//  }
+//  .eggsBody {
+//    background-color: red;
+//    z-index: 1000;
+//    position: relative;
+//    bottom: 0;
+//    display: flex;
+//    width: 70px;
+//    height: 100%;
+//    justify-content: space-between;
+//  }
+//  .right {
+//    left: -80px;
+//    flex-direction: row-reverse;
+//  }
+//}
+//@media screen and (max-width: 450px) {
+//  .chickenBody {
+//    .eggsBody {
+//      width: 30%;
+//    }
+//    .right {
+//      left: -30px;
+//    }
+//  }
+//}
+
+//.chickenBody {
+//  position: absolute;
+//  width: 100%;
+//  height: 30px;
+//  display: flex;
+//  justify-content: flex-start;
+//  &.chickenBodyRight {
+//    justify-content: flex-end;
+//    .chickenImg {
+//      width: 40px;
+//      height: 30px;
+//      order: 2;
+//    }
+//  }
+//  .chickenImg {
+//    width: 30px;
+//    height: 30px;
+//  }
+//  .eggsBody {
+//    width: calc(30% - 40px);
+//    display: flex;
+//    justify-content: space-between;
+//    right: 100%;
+//    &.right {
+//      transform: scale(-1, 1);
+//      width: calc(50% - 115px);
+//    }
+//  }
+//}
+
+.chickenBody {
+  width: 100%;
+  height: 10%;
+  top: 0;
+  position: absolute;
+  display: flex;
+  &.chickenBodyRight {
+    justify-content: flex-end;
+    .chickenImg {
+      order: 2;
+    }
+    .eggsBody {
+      display: flex;
+      flex-direction: column;
+      &.right {
+        transform: scale(-1, 1);
+      }
+    }
+  }
+  .chickenImg {
+    width: 10%;
+    background-color: transparent;
+  }
+  .eggsBody {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+  }
+}
+.score {
+  margin-top: 5%;
+  margin-left: 13%;
+  height: 30%;
+  background-color: #e07651;
+  display: inline-flex;
+  width: 17%;
+  align-items: center;
+  padding: 1% 0% 1% 2%;
+  p {
+    margin-right: 10%;
+    font-size: 7vw;
+    color: white;
+    flex: 0 0 35%;
+  }
+  .img {
+    flex: 0 0 25%;
+    height: 10%;
+    display: flex;
+    align-items: center;
+    width: 29%;
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+  }
+}

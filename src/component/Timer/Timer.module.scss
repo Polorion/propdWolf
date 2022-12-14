@@ -1,0 +1,16 @@
+.body {
+  position: absolute;
+  top: 10%;
+  right: 12%;
+  width: 16%;
+  height: 20%;
+  background-color: #e07651;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10000000000000000000000;
+}
+.time {
+  color: white;
+  font-size: 5vw;
+}
