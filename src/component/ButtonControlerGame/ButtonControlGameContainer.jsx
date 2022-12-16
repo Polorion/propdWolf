@@ -20,7 +20,7 @@ const ButtonControlGameContainer = (props) => {
   const gameover = useSelector((state) => state.player.missedEggs);
   const score = useSelector((state) => state.player.score);
   useEffect(() => {
-    typeGame(1000 - score * 5, 1000 - score * 5);
+    typeGame(1000 - score * 3, 1000 - score * 3);
   }, [score]);
   useEffect(() => {
     if (gameover > 0) {

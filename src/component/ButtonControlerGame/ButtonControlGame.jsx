@@ -6,22 +6,46 @@ import { resetTimeGame } from "../../store/reducers/PlayerReducer";
 import { useDispatch } from "react-redux";
 import { ReactComponent as FullScreen } from "../../img/fullscreen.svg";
 import { ReactComponent as Restart } from "../../img/restar.svg";
+import { openFullWindow } from "../../store/reducers/OpenChickeReducer";
 
 const ButtonControlGame = (props) => {
-  const toggle = () => {
-    if (!document.fullscreenElement) {
-      document.documentElement.requestFullscreen();
-    } else {
-      document.exitFullscreen();
-    }
-  };
   const dispatch = useDispatch();
+
+  // const toggle = () => {
+  //   dispatch(openFullWindow());
+  //   if (!document.fullscreenElement) {
+  //     document.documentElement.requestFullscreen();
+  //   } else {
+  //     document.exitFullscreen();
+  //   }
+  // };
+  function toggle() {
+    var doc = window.document;
+    var docEl = doc.documentElement;
+
+    var requestFullScreen =
+      docEl.requestFullscreen ||
+      docEl.mozRequestFullScreen ||
+      docEl.webkitRequestFullScreen;
+    var cancelFullScreen =
+      doc.exitFullscreen || doc.mozCancelFullScreen || doc.webkitExitFullscreen;
+
+    if (
+      !doc.fullscreenElement &&
+      !doc.mozFullScreenElement &&
+      !doc.webkitFullscreenElement
+    ) {
+      requestFullScreen.call(docEl);
+    } else {
+      cancelFullScreen.call(doc);
+    }
+  }
 
   return (
     <div>
       <div
         className={S.full}
-        style={{ position: "relative", zIndex: "100000" }}
+        style={{ position: "relative", zIndex: "100000", color: "red" }}
         onClick={() => {
           toggle();
         }}

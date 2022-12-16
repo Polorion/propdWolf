@@ -2,10 +2,16 @@ const moveOpen = "MOVE_OPEN";
 const openStart = "OPEN_START";
 const restartEgg = "RESTART_EGG";
 const setMandarin = "SET_MANDARIN";
+const openFull = "OPEN_FULL";
 
 export const moveOpenEgg = () => {
   return {
     type: moveOpen,
+  };
+};
+export const openFullWindow = () => {
+  return {
+    type: openFull,
   };
 };
 
@@ -74,6 +80,7 @@ const initialState = {
   ],
   openChickenPositionRight: [],
   madarin: null,
+  full: false,
 };
 
 const openChickenReducer = (state = initialState, action) => {
@@ -83,6 +90,13 @@ const openChickenReducer = (state = initialState, action) => {
         ...state,
 
         madarin: null,
+      };
+    }
+    case "OPEN_FULL": {
+      return {
+        ...state,
+
+        full: !state.full,
       };
     }
 

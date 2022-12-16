@@ -3,10 +3,12 @@ import WindowGame from "./WindowGame/WindowGame";
 import StartWindow from "./StartWindow/StartWindow";
 import { useSelector } from "react-redux";
 import prevNG from "../audio/NG.mp3";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
+import S from "./WindowGame/WindowGame.module.scss";
 
 const Test = () => {
   const isStarted = useSelector((state) => state.player.gameIsStart);
+  const full = useSelector((state) => state.openChicken.full);
   const audioRef = useRef();
   const playSound = () => {
     audioRef.current.play();
@@ -15,18 +17,45 @@ const Test = () => {
   const stopSound = () => {
     audioRef.current.pause();
   };
+  const ref = useRef();
+  const [h, setH] = useState(window.screen.availWidth);
+  useEffect(() => {
+    const test = document.querySelector(".test");
+    setH(test.offsetHeight);
+    // window.scrollTo(0, 1);
+    const windowRaz = () => {
+      const w = document.querySelector(".container").clientWidth;
+      setH(test.offsetHeight);
+    };
+    window.addEventListener("resize", windowRaz);
+    window.addEventListener("orientationchange", windowRaz);
+    return () => {
+      window.removeEventListener("resize", windowRaz);
+      window.removeEventListener("orientationchange", windowRaz);
+    };
+  }, []);
 
   return (
     <>
-      <audio
-        loop="loop"
-        autoPlay="autoplay"
-        ref={audioRef}
-        src={prevNG}
-      ></audio>
+      <div className={S.gameWindow}>
+        <div
+          className={"container"}
+          ref={ref}
+          style={{
+            height: `${h}px`,
+            width: `100%`,
+          }}
+        >
+          <audio loop="loop" ref={audioRef} src={prevNG}></audio>
 
-      <div className={"test"}>
-        {!isStarted ? <StartWindow playSound={playSound} /> : <WindowGame />}
+          <div className={"test"}>
+            {!isStarted ? (
+              <StartWindow playSound={playSound} />
+            ) : (
+              <WindowGame />
+            )}
+          </div>
+        </div>
       </div>
     </>
   );

@@ -90,11 +90,11 @@ const initialState = {
   missedEggs: 0,
   owner: null,
   gameIsRun: false,
-  speedEggSpawn: 1000,
-  speedEggMove: 500,
+  speedEggSpawn: 2000,
+  speedEggMove: 5200,
   typeGame: 1,
-  timeIsGame: 300,
-  gameOver: true,
+  timeIsGame: 180,
+  gameOver: false,
   success: false,
 };
 
@@ -113,7 +113,7 @@ const playerReducer = (state = initialState, action) => {
     case "TIME_GAME_RESET":
       return {
         ...state,
-        timeIsGame: 2 * 60,
+        timeIsGame: 180,
       };
     case "STARTED_GAME":
       return {

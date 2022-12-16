@@ -106,7 +106,7 @@ const ChickenContainer = (props) => {
 
   return (
     <div>
-      <div className={S.score}>
+      <div className={`${S.score} ${score >= 100 && S.bol}`}>
         {" "}
         <p>{score}</p>{" "}
         <div className={S.img}>
